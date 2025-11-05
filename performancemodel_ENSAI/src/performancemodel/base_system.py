@@ -10,7 +10,7 @@ def h_SCSF(list_degrad=None, S=None, N=0.9, W3R=3, ratio=1100, as_dict=False):
     """Compute measurements thanks to the SCSF simulator
 
     Args:
-        list_degrad (list of list of float): list of degradation, first coordinate is compressor degradation, second coordinate is turbine degradatoin
+        list_degrad (list of list of float): list of degradation of size 2 or 3, first coordinate is compressor degradation, second coordinate is turbine degradation, third coordinate is combustion chamber degradation
         S (list of string, optional): sensors from which we want measurements Defaults to None.
         N (float, optional): engine speed in %. Defaults to 0.9.
         W3R (int, optional): Expected corrected airflow in compressor exit. Defaults to 3.
@@ -44,3 +44,4 @@ def h_SCSF(list_degrad=None, S=None, N=0.9, W3R=3, ratio=1100, as_dict=False):
     
 
     return np.array(out)
+
