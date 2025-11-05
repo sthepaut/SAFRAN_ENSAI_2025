@@ -479,7 +479,7 @@ class SimpleCorpsSimpleFlux_degrad_n_ratio_beta(TurboReactor):
                 None
         """
 
-        eff_rend_comb = self.rend_comb*self.dergad_comb
+        eff_rend_comb = self.rend_comb*self.degrad_comb
         
         self.P4 = eff_rend_comb * self.P3
         self.W4 = self.W3 + eff_rend_comb * Wf
@@ -844,5 +844,6 @@ def outside_passforward(x):
         delta_ratio = ratio - ratio_design
 
         return delta_ratio, delta_W4R
+
 
 
