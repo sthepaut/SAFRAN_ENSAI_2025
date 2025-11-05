@@ -338,7 +338,7 @@ class SimpleCorpsSimpleFlux_degrad_n_ratio_beta(TurboReactor):
         degrad_comp=1,
         degrad_comb=1,
         degrad_turb=1,
-        rend_comb=0.95,
+        rend_comb=0.998,
         rend_turb=0.9,
         W4R_design=8,
         W3R_design=8,
@@ -479,13 +479,15 @@ class SimpleCorpsSimpleFlux_degrad_n_ratio_beta(TurboReactor):
                 None
         """
 
-        self.P4 = self.rend_comb * self.P3
-        self.W4 = self.W3 + self.rend_comb * Wf
+        eff_rend_comb = self.rend_comb*self.degrad_comb
+        
+        self.P4 = eff_rend_comb * self.P3
+        self.W4 = self.W3 + eff_rend_comb * Wf
         self.ratio_fuel_air = Wf/self.W4
         
     
         
-        self.T4 = self.T3 + self.rend_comb * Wf * self.PCI / (self.cp*self.W4)
+        self.T4 = self.T3 + eff_rend_comb * Wf * self.PCI / (self.cp*self.W4)
         
 
 
@@ -842,4 +844,5 @@ def outside_passforward(x):
         delta_ratio = ratio - ratio_design
 
         return delta_ratio, delta_W4R
+
 
