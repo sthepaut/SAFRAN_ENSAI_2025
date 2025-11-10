@@ -51,6 +51,7 @@ def plot_trajectory(trajectory):
     """
     values = np.array(trajectory)
     x = list(range(len(trajectory)))
+    title = 'Degradation Trajectory (Comp, Turb)'
 
     fig = go.Figure()
 
@@ -72,6 +73,7 @@ def plot_trajectory(trajectory):
 
     # Combustion chamber degradation
     if values.shape[1] > 2:
+        title = 'Degradation Trajectory (Comp, Turb, Comb)'
         fig.add_trace(go.Scatter(
             x=x, y=values[:, 2],
             mode='lines+markers',
@@ -81,11 +83,6 @@ def plot_trajectory(trajectory):
 
     # Layout and styling
     fig.update_layout(
-        title =None
-        if values.shapes[1]> 2:
-            title = 'Degradation Trajectory (Comp, Turb, Comb)'
-        else:
-            title = 'Degradation Trajectory (Comp, Turb)'
         
         title= title,
         xaxis_title='Time Step',
